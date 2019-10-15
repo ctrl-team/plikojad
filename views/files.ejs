@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Plikojad</title>
+    <link rel="shortcut icon" href="https://cdn.glitch.com/bef7a77e-9c7f-4287-9998-c562b3c4d823%2Fplikojad.png?v=1570815759223" type="image/x-icon">
+    <meta property="og:type" content="product">
+	  <meta property="og:title" content="Plikojad">
+    <meta property="og:image" content="https://cdn.glitch.com/bef7a77e-9c7f-4287-9998-c562b3c4d823%2Fplikojad.png?v=1570815759223">
+    <meta name="twitter:card" content="product">
+  	<meta name="twitter:site" content="https://plikojad.glitch.me">
+    <meta name="twitter:title" content="Plikojad">
+    <link rel="stylesheet" href="/files/prism.css">
+    <link rel="stylesheet" href="/files/files.css">
+</head>
+<body>
+  <div id="navbar">
+    <a href="/#"><img src="https://cdn.glitch.com/bef7a77e-9c7f-4287-9998-c562b3c4d823%2Fplikojad.png?v=1570815759223" height="90"></a>
+  </div>
+    <div id="wrap">
+    <div id = "title" class="content">
+      <%= title %><span class="color">.</span><%= roz %><br/><span style="font-size: 15px"><%= errors %></span>
+    </div>  
+    <div id="content">
+      <pre><code class="language-<%= roz %>"><%= content %></code></pre>
+    </div>
+    
+    <script src="/files/prism.js"></script>
+  </body>
+</html>

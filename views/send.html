@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Plikojad</title>
+    <link
+      rel="shortcut icon"
+      href="https://cdn.glitch.com/bef7a77e-9c7f-4287-9998-c562b3c4d823%2Fplikojad.png?v=1570815759223"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/files/send.css" />
+    <meta property="og:type" content="product" />
+    <meta property="og:title" content="Plikojad" />
+    <meta property="og:image" content="" />
+    <meta name="twitter:card" content="product" />
+    <meta name="twitter:site" content="https://plikojad.glitch.me" />
+    <meta name="twitter:title" content="Plikojad" />
+    <meta name="twitter:description" content="Miejsce na twoj kupsko code" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"
+      integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var socket = io();
+      function send() {
+        var e = document.getElementById("lang");
+        var strUser = e.options[e.selectedIndex].value;
+        let info = {
+          title: document.getElementById("title-input").value,
+          code: document.getElementById("code").value,
+          lang: strUser,
+          id: Math.floor(Math.random() * 1231231321123213)
+        };
+        if (info.title.replace(/ /gm, "").length < 1)
+          return alert("Za krótki tytuł");
+        if (info.code.length < 3) return alert("Za krótki kod");
+        socket.emit("savedata", info);
+        socket.emit("end");
+        location.replace(`/files/${info.id}`);
+      }
+      function check(){
+        var e = document.getElementById("lan2g");
+        var strUser = e.options[e.selectedIndex].value;
+        if(strUser == "plik") return;
+        if(strUser == "folder") location.replace(`https://plikojad.glitch.me/create/`)
+      }
+    </script>
+  </head>
+  <body>
+    
+    <div id="navbar">
+    <a href="/#"><img src="https://cdn.glitch.com/bef7a77e-9c7f-4287-9998-c562b3c4d823%2Fplikojad.png?v=1570815759223" height="90"></a>
+  </div>
+    
+    <div id="wrapper">
+      <input type="text" id="title-input" class="one data" placeholder="title" maxlength="24"/>
+      <select id="lang" class="data">
+        <option value="js">JavaScript</option>
+        <option value="html">HTML</option>
+        <option value="css">Css</option>
+        <option value="c">C</option>
+        <option value="cs">C#</option>
+        <option value="cpp">C++</option>
+        <option value="rb">Ruby</option>
+        <option value="go">Go</option>
+        <option value="php">PHP</option>
+        <option value="json">Json</option>
+        <option value="kt">Kotlin</option>
+        <option value="lua">Lua</option>
+        <option value="make">makefile</option>
+        <option value="pl">Perl</option>
+        <option value="sql">SQL</option>
+        <option value="py">Python</option>
+        <option value="rs">Rust</option>
+      </select>
+      <select id="lan2g" class="data" onchange="check()">
+        <option value="plik">Plik</option>
+        <option value="folder">Folder</option>
+      </select>
+
+      <textarea
+        rows="10"
+        cols="48"
+        id="code"
+        class="one data"
+        placeholder="code"
+      ></textarea>
+      
+      <input type="button" id="btn" class="one data" value="send" onclick="send()" />
+    </div>
+  </body>
+</html>
