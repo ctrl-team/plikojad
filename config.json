@@ -1,0 +1,4 @@
+{
+  "server": { "port": 2020 },
+  "rethinkdb": { "host": "localhost", "port": 28015 }
+}
