@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ctrl-team/plikojad#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "rethinkdb": "^2.4.2"
