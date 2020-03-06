@@ -52,7 +52,7 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2020 [Nimplex](https://github.com/ctrl-team).<br />
+Copyright © 2020 [Ctrl-team](https://github.com/ctrl-team).<br />
 This project is [MIT](https://github.com/ctrl-team/plikojad/blob/master/LICENSE) licensed.
 
 ---
