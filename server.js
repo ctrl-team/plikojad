@@ -4,14 +4,10 @@ let { server, rethinkdb } = require("./config.json");
 let express = require("express");
 let app = express();
 
+let db = require("./db/");
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-
-r.connect({ host: rethinkdb.host, port: rethinkdb.port }, (err, conn) => {
-  if (err) return console.error(err);
-  console.log("Connected to database");
-  global.conn = conn;
-});
 
 app.get("/", (req, res) => {
   res.send("Welcome");
@@ -23,4 +19,5 @@ app.get("*", (req, res) => {
 
 app.listen(server.port, () => {
   console.log(`Server Ready!\nPort: ${server.port}`);
+  db.init({ host: rethinkdb.host, port: rethinkdb.port });
 });
