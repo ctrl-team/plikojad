@@ -10,7 +10,11 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.send("Welcome");
+  res.sendFile(`${__dirname}/views/index.html`);
+});
+
+app.get("/add", (req, res) => {
+  res.sendFile(`${__dirname}/views/addFile.html`);
 });
 
 app.get("/api/add/:title", async (req, res) => {
@@ -27,6 +31,19 @@ app.get("/api/add/:title", async (req, res) => {
   res.redirect(`/file/${length + 1}`);
 });
 
+app.get("/api/file/:id", async (req, res) => {
+  let id = req.params.id;
+  let file = await r
+    .table(rethinkdb.table)
+    .filter({ id: parseInt(id) })
+    .coerceTo("array")
+    .run(global.conn);
+  if (!file[0]) return res.redirect("/");
+  let code = file[0]["code"];
+  let title = file[0]["title"];
+  res.json({ title: title, code: code.replace(/<br\/>/gm, "\n") });
+});
+
 app.get("/file/:id", async (req, res) => {
   let id = req.params.id;
   let file = await r
@@ -34,12 +51,15 @@ app.get("/file/:id", async (req, res) => {
     .filter({ id: parseInt(id) })
     .coerceTo("array")
     .run(global.conn);
+  if (!file[0]) return res.redirect("/");
   let code = file[0]["code"];
   let title = file[0]["title"];
+  res.send("ok");
+  //res.render(`${__dirname}/views/display.ejs`, { title: title, code: code });
 });
 
 app.get("*", (req, res) => {
-  res.send("404");
+  return res.redirect("/");
 });
 
 app.listen(server.port, () => {

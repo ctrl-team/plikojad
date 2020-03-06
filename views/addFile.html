@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plikojad - Add file</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/addFile.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+      integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/lined-textarea/jquery-linedtextarea.js"></script>
+    <link href="/js/lined-textarea/jquery-linedtextarea.css" rel="stylesheet" />
+    <script src="/js/addFile.js"></script>
+  </head>
+
+  <body>
+    <textarea
+      id="code"
+      spellcheck="false"
+      placeholder="type here..."
+      cols="10"
+      rows="10"
+      class="lined"
+    ></textarea>
+    <div id="menu">
+      <input class="menu-part" type="text" placeholder="title" id="title" />
+      <div id="tiles">
+        <a href="#" onclick="send()">
+          <div class="tile"><i class="fas fa-file-import"></i></div>
+        </a>
+        <a href="/">
+          <div class="tile"><i class="fas fa-home"></i></div>
+        </a>
+        <a href="info">
+          <div class="tile"><i class="fas fa-info"></i></div>
+        </a>
+      </div>
+    </div>
+    <div id="bottom-fix"></div>
+  </body>
+</html>
