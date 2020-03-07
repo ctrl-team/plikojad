@@ -1,0 +1,19 @@
+body {
+  font-family: "Raleway", sans-serif !important;
+}
+#wrap {
+  padding: 10vh;
+}
+.header-main {
+  font-size: 60px;
+}
+.header {
+  margin-top: 5vh;
+  font-size: 30px;
+}
+#description {
+  margin-top: 2vh;
+}
+#authors {
+  margin-top: 2vh;
+}

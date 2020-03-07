@@ -18,6 +18,9 @@ body {
   align-items: center;
   flex-direction: column;
 }
+a {
+  color: #4ecdc4;
+}
 #main-header {
   font-size: 70px;
   position: relative;

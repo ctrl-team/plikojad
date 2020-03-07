@@ -1,69 +1,64 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  overflow: hidden;
+
+html, body {padding: 0; margin: 0; height: 100%; overflow: hidden}
+textarea{
+    overflow-y: scroll;
+    padding: 2vh;
+    color: white;
+    background: transparent;
+    resize: none;
+    position: absolute;
+    height: 100%;
+    width: 99.7%;
+    border: none;
+    outline: none ;
 }
-textarea {
-  overflow-y: scroll;
-  padding: 2vh;
-  color: white;
-  background: transparent;
-  resize: none;
-  position: absolute;
-  height: 100%;
-  width: 99.7%;
-  border: none;
-  outline: none;
-}
-#menu {
-  background: rgb(27, 31, 36);
-  padding: 1vh;
-  top: 3vh;
-  right: 3vh;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
+#menu{
+    background: rgb(27, 31, 36);
+    padding: 1vh;
+    top: 3vh;
+    right: 3vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
 }
 
-.menu-part {
-  font-size: 15px;
-  text-align: center;
-  padding: 1vh 0;
-  margin: 1vh;
-  border: none;
-  background: #292f36;
-  color: #4ecdc4;
-  outline: none;
+.menu-part{
+    font-size: 15px;
+    text-align: center;
+    padding: 1vh 0 ;
+    margin: 1vh;
+    border: none;
+    background: #292F36;
+    color: #4ECDC4;
+    outline: none;
 }
-.menu-part:hover {
-  outline: 2px solid #4ecdc4;
+.menu-part:hover{
+    outline: 2px solid #4ECDC4;
 }
-#tiles {
-  margin: 0 1vh;
-  display: flex;
-  font-size: 22px;
-  justify-content: space-evenly;
+#tiles{
+    margin: 0 1vh;
+    display: flex;
+    font-size: 22px;
+    justify-content: space-evenly;
 }
-.tile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 3vh;
-  width: 6vh;
-  transition: color 300ms;
+.tile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3vh;
+    width: 6vh;
+    transition: color 300ms;
 }
-.tile:hover {
-  color: #4ecdc4;
+.tile:hover{
+    color: #4ECDC4;
 }
-a .tile {
-  color: white;
+a .tile{
+    color: white;
 }
-#bottom-fix {
-  position: fixed;
-  bottom: 0;
-  height: 3vh;
-  width: 100%;
-  background: #292f36;
+#bottom-fix{
+    position: fixed;
+    bottom: 0;
+    height: 3vh;
+    width: 100%;
+    background: #292F36;
 }

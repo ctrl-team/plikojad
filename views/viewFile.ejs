@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plikojad - Add file</title>
+    <title>Plikojad - View file</title>
     <link
       href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap"
       rel="stylesheet"
@@ -26,21 +26,24 @@
 
   <body>
     <textarea
+      readonly="true"
       id="code"
       spellcheck="false"
-      placeholder="type here..."
       cols="10"
       rows="10"
       class="lined"
-    ></textarea>
+    >
+<%-code.replace(/<br\/>/gm,"\n")%>
+    </textarea>
     <div id="menu">
-      <input class="menu-part" type="text" placeholder="title" id="title" />
+      <input
+        class="menu-part"
+        type="text"
+        id="title"
+        value="<%=title%>"
+        disabled
+      />
       <div id="tiles">
-        <a id="sendBtn" href="#">
-          <div class="tile" title="send">
-            <i class="fas fa-file-import"></i>
-          </div>
-        </a>
         <a href="/">
           <div class="tile" title="home"><i class="fas fa-home"></i></div>
         </a>
@@ -50,6 +53,6 @@
       </div>
     </div>
     <div id="bottom-fix"></div>
-    <script src="/js/addFile.js"></script>
+    <script src="/js/viewFile.js"></script>
   </body>
 </html>

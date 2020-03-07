@@ -54,7 +54,14 @@ app.get("/file/:id", async (req, res) => {
   if (!file[0]) return res.redirect("/");
   let code = file[0]["code"];
   let title = file[0]["title"];
-  res.render(`${__dirname}/views/display.ejs`, { title: title, code: code });
+  res.render(`${__dirname}/views/viewFile.ejs`, { title: title, code: code });
+});
+app.get("/info", async (req, res) => {
+  let length = await r
+    .table(rethinkdb.table)
+    .count()
+    .run(global.conn);
+  res.render(`${__dirname}/views/info.ejs`, { length: length });
 });
 
 app.get("*", (req, res) => {
