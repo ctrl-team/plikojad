@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/js/highlightjs/monokai-sublime.css" />
+    <script src="/js/highlightjs/highlight.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <code id="code"><%-code.replace(/<br\/>/gm,"&#13;&#10;")%></code>
+  </body>
+  <script>
+    hljs.initHighlightingOnLoad();
+    let code = document.getElementById("code").innerText;
+    document.getElementById("code").innerHTML = hljs.highlightAuto(code).value;
+  </script>
+</html>

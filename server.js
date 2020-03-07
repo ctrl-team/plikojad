@@ -20,8 +20,8 @@ app.get("/add", (req, res) => {
 app.get("/api/add/:title", async (req, res) => {
   let title = req.params["title"]; // /api/add/<title>
   let code = req.query["code"]; // /api/add/<title>?code=<code>
-  if (code.length < 2 || !title) {
-    return res.status("400").send("Bad Request");
+  if (code.length < 3 || title.length < 2) {
+    return res.redirect("/");
   }
   let length = await r
     .table(rethinkdb.table)
@@ -54,8 +54,7 @@ app.get("/file/:id", async (req, res) => {
   if (!file[0]) return res.redirect("/");
   let code = file[0]["code"];
   let title = file[0]["title"];
-  res.send("ok");
-  //res.render(`${__dirname}/views/display.ejs`, { title: title, code: code });
+  res.render(`${__dirname}/views/display.ejs`, { title: title, code: code });
 });
 
 app.get("*", (req, res) => {
